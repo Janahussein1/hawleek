@@ -28,13 +28,35 @@
                 <a href="#directory" class="cta-btn"> Explore Now </a>
             </section>
 
-            <scetion class="search-container">
+            <section class="search-container">
                 <h2> Find What You Need </h2>
                 <form id="searchform" >
-                    <label for="searchQuery" class="sr-only"> Category </label>
-                    <input type="text" id="                                                             "
+                    <label for="searchQuery" class="sr-only"> Search </label>
+                    <input type="text" id="searchQueary" name="searchQuery" placeholder="Search foe a restaurant, service, or station...">
+                   
+                    <label for="category"    class="sr-only"> Category </label>
+                    <select name="Category"  id="category" >
+                    <option value="all"> All Categories </option> 
+                    <option value="Food"> Restaurents & Cafes </option>
+                    <option value="Transport"> Transport Hubs </option> 
+                    <option value="Service"> Technicians & Services </option>
+                    </select> 
+                    <button type="button"> Search </button>                              "
                 </form>
-            </scetion>
+            </section>
+
+            <section id="directory"  class="Listing-grid">
+                <h2> Featured Local Businesses </h2>
+                <div class="cards-container"></div>
+                <article class="card">
+                    <img src="assets/restaurant-sample.jpg"  alt="Cozy Local Pizzeria interior">
+                    <div class="cards-content">
+                        <h3>Neighborhood Pizzeria</h3>
+                        
+
+
+
+
         </main>
     </body>
 
