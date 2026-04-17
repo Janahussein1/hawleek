@@ -9,13 +9,11 @@
 <body>
 
 <div class="dashboard-container">
-    <aside class="sidebar" aria-label="Main Navigation">
+    <aside class="sidebar">
         <h2>Hawlek Admin</h2>
         <nav>
             <ul> 
                 <li><a href="#" class="active">Dashboard</a></li>
-                <li><a href="pages/clinics.html">Clinics</a></li>
-                <li><a href="pages/transport.html">Transport</a></li>
                 <li><a href="index.html">Logout</a></li>
             </ul>
         </nav>
@@ -47,11 +45,11 @@
             <form id="addReservationForm">
                 <div class="form-group">
                     <label for="resName">Customer Name</label>
-                    <input type="text" id="resName" required placeholder="e.g., John Doe">
+                    <input type="text" id="resName" required>
                 </div>
                 <div class="form-group">
                     <label for="resGuests">Number of Guests</label>
-                    <input type="number" id="resGuests" required min="1" placeholder="e.g., 4">
+                    <input type="number" id="resGuests" required min="1">
                 </div>
                 <div class="form-group">
                     <label for="resDateTime">Date & Time</label>
@@ -63,7 +61,7 @@
 
         <section class="table-wrapper">
             <h2>Recent Reservations</h2>
-            <input type="search" id="searchInput" class="search-bar" placeholder="Search by name...">
+            <input type="search" id="searchInput" placeholder="Search by name...">
 
             <div class="table-responsive">
                 <table>
@@ -110,6 +108,6 @@
     <form method="dialog"><button>Close</button></form>
 </dialog>
 
-<script src="js/javadashboard.js"></script>
+<script src="javadashboard.js"></script>
 </body>
 </html>
