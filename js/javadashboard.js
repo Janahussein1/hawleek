@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("JS LOADED");
+    console.log("JS LOADED AND READY");
 
+   
 
     const loginForm = document.getElementById('loginForm');
     const loginSection = document.getElementById('login-section');
     const dashboardSection = document.getElementById('dashboard-section');
+    const errorMsg = document.getElementById('error-msg');
     
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
@@ -12,36 +14,40 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const usernameInput = document.getElementById('username').value;
             const passwordInput = document.getElementById('password').value;
-            const errorMsg = document.getElementById('error-msg');
             
          
-            const validUsername = "admin1";
-            const validPassword = "adminpass12";
-
-            if (usernameInput !== validUsername || passwordInput !== validPassword) {
-               
+            if (usernameInput === "admin1" && passwordInput === "adminpass12") {
+                console.log("LOGIN SUCCESSFUL");
+                
+             
+                loginSection.style.display = 'none'; 
+                
+                
+                dashboardSection.style.display = 'block'; 
+                
+             
+                errorMsg.style.display = 'none';
+                
+                
+                updateStats(); 
+            } else {
+                console.log("LOGIN FAILED");
+                
+              
                 errorMsg.textContent = "Error: Invalid username or password. Access denied.";
-                errorMsg.hidden = false;
-                return; 
+                errorMsg.style.display = 'block';
             }
-
-            errorMsg.hidden = true; 
-            loginSection.hidden = true; 
-            dashboardSection.hidden = false; 
-           
-            updateStats();
         });
     }
 
-
+ 
     const tableBody = document.getElementById('reservation-table-body');
     const statTotalEl = document.getElementById('stat-total');
     const statPendingEl = document.getElementById('stat-pending');
     const statCancelledEl = document.getElementById('stat-cancelled');
 
-   
     const updateStats = () => {
-        if (!tableBody) return; // safety check
+        if (!tableBody) return; 
         
         const rows = document.querySelectorAll('.reservation-row');
         let totalCount = rows.length;
@@ -58,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (statPendingEl) statPendingEl.innerText = pendingCount;
         if (statCancelledEl) statCancelledEl.innerText = cancelledCount;
     };
-
 
     const showNotification = (title, message) => {
         const modal = document.getElementById('notificationModal');
@@ -78,12 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const guests = document.getElementById('resGuests').value;
             const dateTimeInput = document.getElementById('resDateTime').value;
 
-            // Format Date and Time
             const dateObj = new Date(dateTimeInput);
             const options = { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' };
             const formattedDate = dateObj.toLocaleDateString('en-US', options);
 
-         
             const newRow = document.createElement('tr');
             newRow.className = 'reservation-row';
             newRow.setAttribute('data-status', 'pending');
@@ -101,14 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             tableBody.appendChild(newRow);
             
-           
             this.reset();
             updateStats();
             showNotification("Success", `Reservation for ${name} added!`);
         });
     }
 
- 
     if (tableBody) {
         tableBody.addEventListener('click', (e) => {
             const target = e.target;
@@ -122,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!badge) return;
 
-     
             if (target.classList.contains('btn-confirm') && !target.disabled) {
                 row.setAttribute('data-status', 'confirmed');
                 badge.className = 'badge confirmed';
@@ -133,7 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 showNotification("Confirmed", `Reservation for ${customerName} has been confirmed.`);
             }
 
-
             if (target.classList.contains('btn-cancel') && !target.disabled) {
                 row.setAttribute('data-status', 'cancelled');
                 badge.className = 'badge cancelled';
@@ -141,9 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if(confirmBtn) confirmBtn.disabled = true; 
                 target.disabled = true; 
-                
-
-                row.classList.add('faded');
+                row.style.opacity = '0.5'; 
 
                 updateStats();
                 showNotification("Cancelled", `Reservation for ${customerName} has been cancelled.`);
@@ -151,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
@@ -160,8 +156,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             rows.forEach(row => {
                 const name = row.querySelector('.customer-name').textContent.toLowerCase();
-             
-                row.hidden = !name.includes(searchTerm);
+                if (name.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
             });
         });
     }
