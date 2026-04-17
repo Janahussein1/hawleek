@@ -1,83 +1,57 @@
 <!DOCTYPE html> 
 <html lang="en"> 
-    <head> 
-        <meta charset="UTF-8">
-        <meta name="viewport" content=" width=device-width, initial-scale=1">
-        <title> Hawaleek | Neighborhood Guide & Booking </title>
-        <link rel="stylesheet" href= "css/style.css">
-    </head>
-    <body>
-        <header> 
-            <nav class="navbar" >
-           <div class="logo" > Hawaleek </div>  
-           <ul>
-            <li> <a href="#home"> Home </a></li>
-            <li> <a href="#directory"> Local Directory </a></li>
-            <li> <a href="pages/booking.html"> Booking </a> </li>
-            <li> <a href= "pages/transport.html"> Transport  </a></li>
-            <li> <a href="pages/admin.html" > Admin </a></li>
-           </ul>
-            </nav>
-        </header>
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Hawaleek | Home </title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header> 
+        <nav class="navbar">
+            <div class="logo"> Hawaleek </div>  
+            <ul>
+                <li> <a href="index.html" class="active"> Home </a></li>
+                <li> <a href="pages/services.html"> Local Directory </a></li>
+                <li> <a href="pages/booking.html"> Booking </a> </li>
+                <li> <a href="pages/transport.html"> Transport </a></li>
+                <li> <a href="pages/admin.html"> Admin </a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main> 
+        <section id="home" class="welcome-section">
+            <h1> Your Neighborhood, connected. </h1>
+            <p> Discover Local shops, track microbuses, and book experts in seconds.</p>
+            <a href="pages/services.html" class="explore-btn"> Explore More </a>
+        </section>
 
-        <main> 
-            <section id="home" class="welcome-section">
-                <h1> Your Neighborhood, connected. </h1>
-                <p> Discover Local shops, track microbuses, and book experts in seconds.</p>
-                <a href="pages/services.html" class="explore-btn"> Explore Now </a>
-            </section>
-
-            <section class="search-container">
-                <h2> Find What You Need </h2>
-                <form id="searchform" >
-                    <label for="searchQuery" class="hidden-label"> Search </label>
-                    <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for a restaurant, service, or station...">
-                   
-                    <label for="category"    class="hidden-label"> Category </label>
-                    <select name="Category"  id="category" >
+        <section class="search-container">
+            <h2> Find What You Need </h2>
+            <form id="searchform">
+                <label for="searchQuery" class="hidden-label"> Search </label>
+                <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for a restaurant, service, or station...">
+                
+                <label for="category" class="hidden-label"> Category </label>
+                <select name="Category" id="category">
                     <option value="all"> All Categories </option> 
-                    <option value="Food"> Restaurents & Cafes </option>
+                    <option value="Food"> Restaurants & Cafes </option>
                     <option value="Transport"> Transport Hubs </option> 
                     <option value="Service"> Technicians & Services </option>
-                    </select> 
-                    <button type="button"> Search </button>                              
-                </form>
-            </section>
+                    <option value="Clinics"> Medical Clinics </option>
+                </select> 
+                <button type="button"> Search </button>                               
+            </form>
+        </section>
+    </main>
 
-            <article class="card">
-                <img src="technician.jpg"  alt="Electrician fixing a panel">
-                <div class="card-content">
-                    <h3> Sayed Electric & Plumbing </h3>
-                    <p> Reliable home maintenance and emergency repairs.</p>
-                    <a href="pages/booking.html"  class="book-link"> Request service </a>
-                </div>
-            </article>  
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Hawaleek Project. All rights reserved.</p>
+        </div>
+    </footer>
 
-        <article class="card">
-            <img src="transportation.jpg" alt="Microbus station" >
-            <div class="card-content">
-                <h3> Local Transport Hub </h3>
-                <p> Track microbuses and find the nearest stations in real-time. </p>
-                <a href="pages/transport.html" class="explore-link"> View Schedule </a>
-            </div>
-        </article>
-
-        </div></section></main>
-
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2026 Hawaleek Project. All rights reserved.</p>
-        <ul class="footer-links">
-            <li> <a href="#" > Privacy Policy</a></li>
-            <li> <a href="#"> Terms Of Service </a></li>
-            <li><a href="#" > Contact Us </a> </li>
-        </ul>
-    </div>
-</footer>
-
-
-<script src="js/validation.js"></script>
-<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
