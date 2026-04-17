@@ -5,19 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hawlek Admin Dashboard for Restaurant Management">
     <meta name="theme-color" content="#2c3e50">
-    <title>Hawlek | Admin Dashboard</title>
+    <title>Hawlek | Admin System</title>
     
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .search-bar { padding: 10px; margin-bottom: 15px; width: 100%; max-width: 300px; border-radius: 5px; border: 1px solid #ccc; }
-        .hidden-row { display: none; }
-        /* Advanced: Native Dialog Styling */
-        dialog { border: none; border-radius: 8px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        dialog::backdrop { background: rgba(0,0,0,0.5); backdrop-filter: blur(2px); }
-    </style>
 </head>
 <body>
-<div class="dashboard-container">
+
+<div id="login-section" class="login-container">
+    <h2>Hawlek Admin</h2>
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+        </div>
+        
+        <p id="error-msg" class="error-message" hidden></p>
+        
+        <button type="submit" class="btn-login">Login</button>
+    </form>
+</div>
+
+<div id="dashboard-section" class="dashboard-container" hidden>
     
     <aside class="sidebar" aria-label="Main Navigation">
         <h2>Hawlek Admin</h2>
@@ -26,7 +38,7 @@
                 <li><a href="#" class="active" aria-current="page">Dashboard</a></li>
                 <li><a href="pages/clinics.html">Clinics</a></li>
                 <li><a href="pages/transport.html">Transport</a></li>
-                <li><a href="../index.html">Logout</a></li>
+                <li><a href="index.html">Logout</a></li>
             </ul>
         </nav>
     </aside>
@@ -40,22 +52,40 @@
         <section class="stats-container" aria-live="polite">
             <article class="card">
                 <h3>Total Bookings</h3>
-                <p class="stat-number" id="stat-total">128</p>
+                <p class="stat-number" id="stat-total">2</p>
             </article>
             <article class="card">
                 <h3>Pending</h3>
-                <p class="stat-number" id="stat-pending" style="color:#f39c12;">12</p>
+                <p class="stat-number" id="stat-pending">1</p>
             </article>
             <article class="card">
                 <h3>Cancelled</h3>
-                <p class="stat-number" id="stat-cancelled" style="color:#e74c3c;">4</p>
+                <p class="stat-number" id="stat-cancelled">0</p>
             </article>
+        </section>
+
+        <section class="add-form-container">
+            <h2>Add New Reservation</h2>
+            <form id="addReservationForm">
+                <div class="form-group">
+                    <label for="resName">Customer Name</label>
+                    <input type="text" id="resName" required placeholder="e.g. John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="resGuests">Number of Guests</label>
+                    <input type="number" id="resGuests" required min="1" placeholder="e.g. 4">
+                </div>
+                <div class="form-group">
+                    <label for="resDateTime">Date & Time</label>
+                    <input type="datetime-local" id="resDateTime" required>
+                </div>
+                <button type="submit" class="btn-add">Add Reservation</button>
+            </form>
         </section>
 
         <section class="table-wrapper">
             <h2>Recent Reservations</h2>
-            
-            <input type="search" id="searchInput" class="search-bar" placeholder="Search by name (e.g., Omar)..." aria-controls="reservation-table-body">
+            <input type="search" id="searchInput" class="search-bar" placeholder="Search by name..." aria-controls="reservation-table-body">
 
             <div class="table-responsive">
                 <table aria-label="Recent Reservations Table">
@@ -69,29 +99,26 @@
                         </tr>
                     </thead>
                     <tbody id="reservation-table-body">
-                        
                         <tr class="reservation-row" data-id="101" data-status="pending">
                             <td class="customer-name" scope="row">Omar Khaled</td>
                             <td>4 Persons</td>
                             <td><time datetime="2026-10-28T20:00">Oct 28, 8:00 PM</time></td>
                             <td><span class="badge pending">Pending</span></td>
                             <td>
-                                <button class="btn-confirm" aria-label="Confirm booking for Omar Khaled">Confirm</button>
-                                <button class="btn-cancel" aria-label="Cancel booking for Omar Khaled">Cancel</button>
+                                <button class="btn-confirm">Confirm</button>
+                                <button class="btn-cancel">Cancel</button>
                             </td>
                         </tr>
-                        
                         <tr class="reservation-row" data-id="102" data-status="confirmed">
                             <td class="customer-name" scope="row">Sara Ahmed</td>   
                             <td>2 Persons</td> 
                             <td><time datetime="2026-10-29T14:00">Oct 29, 2:00 PM</time></td>
                             <td><span class="badge confirmed">Confirmed</span></td>
                             <td>
-                                <button class="btn-confirm" disabled aria-label="Booking already confirmed">Confirm</button>
-                                <button class="btn-cancel" aria-label="Cancel booking for Sara Ahmed">Cancel</button>
+                                <button class="btn-confirm" disabled>Confirm</button>
+                                <button class="btn-cancel">Cancel</button>
                             </td> 
                         </tr>
-                        
                     </tbody>
                 </table>
             </div>
@@ -100,10 +127,10 @@
 </div>
 
 <dialog id="notificationModal">
-    <h3>System Update</h3>
-    <p>The reservation has been successfully updated.</p>
+    <h3 id="modalTitle">System Update</h3>
+    <p id="modalMessage">Action successful.</p>
     <form method="dialog">
-        <button style="padding: 5px 15px; cursor: pointer;">Close</button>
+        <button class="btn-close">Close</button>
     </form>
 </dialog>
 
