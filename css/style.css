@@ -710,3 +710,58 @@ footer {
     margin-bottom: 15px;
     height: 40px;
 }
+
+
+/* 4. Status Tags  */
+.status-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    background: whitesmoke;
+    color: RoyalBlue;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 5. Buttons  */
+.book-link, .call-link {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.book-link {
+    background: RoyalBlue;
+    color: White;
+}
+
+.book-link:hover {
+    background: MidnightBlue;
+    transform: scale(1.02);
+}
+
+.call-link {
+    background: white; 
+    color: #2f855a; 
+    border: 1px solid #2f855a;
+}
+
+.call-link:hover {
+    background: darkgreen;
+    color: White;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: gray;
+    font-size: 0.9rem;
+}
