@@ -289,42 +289,50 @@ footer {
 7. transportation page style
 */
 
-.transport-container{
-    padding: 50px 10%;
+
+.transport-header {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, RoyalBlue, MidnightBlue);
+    color: White;
+    border-radius: 0 0 80px 80px;
+    margin-bottom: -40px;
     animation: fadeIn 1s ease-in;
 }
 
-.schedule-table{
-    width:100%;
-    border-collapse: collapse;
-    margin-top:30px;
-    background: white;
-    border-radius: 15px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,0.05);
+.transport-header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
 }
-.schedule-table th {
-    background-color: RoyalBlue;
-    color: White;
-    padding: 15px;
-    text-align: left;
-}
-
-.schedule-table td {
-    padding: 15px;
-    border-bottom: 1px solid LightGray;
+/*tools-wrapper*/
+.transport-tools-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 40px 8%;
+    position: relative;
+    z-index: 10;
 }
 
-.schedule-table tr:hover {
-    background-color: Azure; 
-    transition: 0.3s;
-}
-.status-badge {
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
+.tool-card {
+    background: White;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeInUp 0.8s ease-out;
 }
 
-.on-time { background: HoneyDew; color: DarkGreen; }
-.delayed { background: MistyRose; color: DarkRed; }
+.tool-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(65, 105, 225, 0.15);
+}
+
+.tool-card h2 {
+    color: RoyalBlue;
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+}
+
