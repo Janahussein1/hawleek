@@ -650,7 +650,7 @@ footer {
 .page-header {
     text-align: center;
     padding: 60px 20px;
-    background: linear-gradient(135deg, #f0f4ff, #ffffff);
+    background: linear-gradient(135deg, whitesmoke, white);
     color: MidnightBlue;
     border-bottom: 2px solid #eef2ff;
 }
@@ -672,3 +672,41 @@ footer {
     justify-content: center;
 }
 
+/* 3. Medical Card Design */
+.card {
+    background: White;
+    width: 300px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: 0.4s;
+    border: 1px solid whitesmoke;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(65, 105, 225, 0.12);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.cards-content {
+    padding: 25px;
+}
+
+.cards-content h3 {
+    color: MidnightBlue;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.cards-content p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+    height: 40px;
+}
