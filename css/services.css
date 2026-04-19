@@ -85,10 +85,11 @@
 /* 2. Compact Services Wrapper */
 .services-wrapper {
     display: flex;
-    flex-wrap: wrap; 
+     flex-direction:row;
+    flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    align-items: center;
+   
 }
 
 /* 3. style Cards */
