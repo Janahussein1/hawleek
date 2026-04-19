@@ -1,51 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
     const mosquesData = [
         {
-            name: "Al-Rahman Grand Mosque",
-            description: "Main neighborhood mosque. Holds Friday Jumu'ah prayers.",
-            image: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800",
+            name: "Al-Rahman Mosque",
+            description: "Main Street, 5 mins away.",
+            image: "mosque.jpg",
             status: "Open Now",
-            actionText: "View Times",
-            contactText: "Call Imam"
+            actionText: "Get Directions",
+            contactText: "Call Imam",
+            phone: "+20123456789"
         },
         {
-            name: "El-Nour Community Mosque",
-            description: "Quiet local mosque offering evening Quran memorization classes.",
-            image: "https://images.unsplash.com/photo-1519817650390-64a93db51149?w=800",
-            status: "Closes at 10 PM",
-            actionText: "View Classes",
-            contactText: "Contact Admin"
-        },
-        {
-            name: "Masjid Al-Salam",
-            description: "Located near the transport hub. Fully wheelchair accessible.",
-            image: "https://images.unsplash.com/photo-1608023136037-3363ad92a953?w=800",
-            status: "Open Now",
-            actionText: "Directions",
-            contactText: "Call Office"
+            name: "Al-Nour Mosque",
+            description: "West District, has women's prayer area.",
+            image: "mosque2.jpg",
+            status: "Friday Prayers",
+            actionText: "Get Directions",
+            contactText: "Call Imam",
+            phone: "+20198765432"
         }
     ];
 
-    const mosquesWrapper = document.getElementById("mosquesWrapper");
+    const servicesWrapper = document.querySelector(".services-wrapper");
 
-    if (mosquesWrapper) {
+    if (servicesWrapper) {
+        servicesWrapper.innerHTML = ""; 
+
         mosquesData.forEach((mosque) => {
-            // Generating HTML that strictly matches your new Emerald Green CSS
             const cardHTML = `
-                <div class="card">
+                <article class="card">
                     <img src="${mosque.image}" alt="${mosque.name}">
                     <div class="cards-content">
                         <span class="status-tag">${mosque.status}</span>
                         <h3>${mosque.name}</h3>
                         <p>${mosque.description}</p>
-                        
-                        <a href="#" class="book-link">${mosque.actionText}</a>
-                        <a href="#" class="call-link">${mosque.contactText}</a>
+                        <a href="directions.html" class="book-link">${mosque.actionText}</a>
+                        <a href="tel:${mosque.phone}" class="call-link">${mosque.contactText}</a>
                     </div>
-                </div>
+                </article>
             `;
-            mosquesWrapper.innerHTML += cardHTML;
+            servicesWrapper.innerHTML += cardHTML;
         });
     }
 });
