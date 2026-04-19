@@ -1,69 +1,55 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> Hawaleek | Book a Service </title>
-        <link rel="stylesheet" href="../../css/booking.css">
-    </head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant Dashboard</title>
+<link rel="stylesheet" href="../../dashboard/dashboard.css">
+</head>
+<body>
 
-    <body>
-        <header> 
-    <nav class="navbar">
-        <div class="logo"> Hawaleek </div>
-        <ul> 
-            <li> <a href="../index.html"> Home </a></li>
-            <li> <a href="services.html"> Local Directory </a></li>
-            <li> <a href="transport.html"> Transport </a></li>
-            <li> <a href="clinics.html"> Clinics </a></li>
-            <li> <a href="booking.html" class="active"> Booking </a></li>
-            <li> <a href="../../dashboard/login.html"> Admin </a></li>
-        </ul>
-    </nav>
-</header>
+<nav>
+<a href="#">Restaurants</a> |
+<a href="clinics.html">Clinics</a> |
+<a href="transport.html">Transport</a> |
+<a href="login.html">Logout</a>
+</nav>
 
-        <main class="booking-container">
-            <section class="form-wrapper">
-                <h1> Schedule an Appointment </h1>
-                <p> Connect with local experts and businesses instantly.</p>
-                
-                <form id="appointmentForm">
-                    <fieldset> 
-                        <legend> Service Details </legend>
-                        <label for="vendor"> Select Business: </label>
-                        <select id="vendor" required>
-                            <option value="">-- Choose a Place --</option>
-                            <option value="pizzeria"> Neighborhood Pizzeria </option>
-                            <option value="elecrician"> Sayed Electric </option>
-                            <option value="clinic"> Medical Center </option>
-                        </select>
+<h2>Restaurant Reservations</h2>
 
-                        <label for="serviceType"> Type of Service: </label>
-                        <input type="text" id="serviceType" placeholder="e.g Table for 4, or AC Repair">
-                    </fieldset>
+<ul>
+<li>Total Reservations: <strong id="stat-total">0</strong></li>
+<li>Pending: <strong id="stat-pending">0</strong></li>
+<li>Cancelled: <strong id="stat-cancelled">0</strong></li>
+</ul>
 
-                    <fieldset> 
-                        <legend> Your Information </legend>
-                        <label for="fullName"> Full Name: </label>
-                        <input type="text" id="fullName" required> 
+<form id="addReservationForm">
+<label>Name:
+<input type="text" id="resName" required>
+</label>
+<label>Guests:
+<input type="number" id="resGuests" required>
+</label>
+<label>Date & Time:
+<input type="datetime-local" id="resDateTime" required>
+</label>
+<button type="submit">Add Reservation</button>
+</form>
 
-                        <label for="phone"> Phone Number: </label>
-                        <input type="tel" id="phone" placeholder="01xxxxxxxxx" required>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Guests</th>
+<th>Date & Time</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="reservation-table-body">
+</tbody>
+</table>
 
-                        <label for="date"> Preferred Date: </label>
-                        <input type="date" id="date" required> 
-                    </fieldset>
-
-                    <button type="submit" class="submit-btn"> Submit Booking Request </button>
-                </form>
-            </section>
-        </main>
-
-        <footer> 
-            <p> &copy; 2026 Hawaleek Project </p>
-        </footer>
-
-        <script src="../../js/validation.js"></script>
-    </body>
+<script src="../../dashboard/javadashboard.js"></script>
+</body>
 </html>
