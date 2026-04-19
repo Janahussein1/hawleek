@@ -18,12 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             contactText: "Contact Admin"
         },
         {
-            name: "Masjid Al-Salam",
-            description: "Located near the transport hub. Fully wheelchair accessible.",
-            image: "https://images.unsplash.com/photo-1608023136037-3363ad92a953?w=800",
-            status: "Open Now",
-            actionText: "Directions",
-            contactText: "Call Office"
+          
         }
     ];
 
